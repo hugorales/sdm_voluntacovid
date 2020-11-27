@@ -2,20 +2,17 @@ package es.uniovi.eii.voluntacovid;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.Toast;
 
 import es.uniovi.eii.voluntacovid.datos.UsuariosDataSource;
 import es.uniovi.eii.voluntacovid.modelo.Usuario;
 
-public class MainActivity extends AppCompatActivity {
+public class RegistroActivity extends AppCompatActivity {
 
     private EditText txUsuario,txContraseña,txContraseña2,txTelefono,txDireccion,txCodigoPostal;
     private RadioButton rdNecesitado,rdVoluntario;
@@ -24,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.registro);
 
         txUsuario = (EditText) findViewById(R.id.txUsuario);
         txContraseña = (EditText) findViewById(R.id.txContraseña);
@@ -57,6 +54,10 @@ public class MainActivity extends AppCompatActivity {
                         else
                             usuarioAñadir.setTipo("VOLUNTARIO");
                         usuariosDataSource.createUser(usuarioAñadir);
+
+                        Intent myIntent = new Intent(RegistroActivity.this, PaginaPrincipalActivity.class);
+                        myIntent.putExtra("key", 1); //Optional parameters
+                        RegistroActivity.this.startActivity(myIntent);
                     }
                     usuariosDataSource.close();
                 }
