@@ -30,6 +30,22 @@ public class MyDBHelper extends SQLiteOpenHelper {
     public static final String COLUMNA_TIPO_USUARIOS = "tipo";
 
 
+
+    /**
+     * Nombre de la tabla ayuda y sus columnas
+     * usuario;titulo;descripcion;fecha;estado
+     */
+
+    public static final String TABLA_AYUDA = "tabla_ayuda";
+
+    public static final String COLUMNA_ID_AYUDA = "id";
+    public static final String COLUMNA_USUARIO_AYUDA ="usuario";
+    public static final String COLUMNA_TITULO_AYUDA = "titulo";
+    public static final String COLUMNA_DESCRIPCION_AYUDA = "descripcion";
+    public static final String COLUMNA_FECHA_AYUDA = "fecha";
+    public static final String COLUMNA_ESTADO_AYUDA = "estado";
+
+
     /**
      * Script para crear la base datos en SQL
      */
@@ -44,10 +60,23 @@ public class MyDBHelper extends SQLiteOpenHelper {
              ");";
 
 
+    private static final String CREATE_TABLA_AYUDA = "create table if not exists " + TABLA_AYUDA
+            + "( " +
+            COLUMNA_ID_AYUDA + " " + "integer primary key, " +
+            COLUMNA_USUARIO_AYUDA + " " + "text not null, " +
+            COLUMNA_TITULO_AYUDA + " text not null, " +
+            COLUMNA_DESCRIPCION_AYUDA + " text not null, " +
+            COLUMNA_FECHA_AYUDA + " text not null, " +
+            COLUMNA_ESTADO_AYUDA + " text not null" +
+            ");";
+
+
     /**
      * Script para borrar la base de datos (SQL)
      */
     private static final String DATABASE_DROP_USUARIOS = "DROP TABLE IF EXISTS " + TABLA_USUARIOS;
+
+    private static final String DATABASE_DROP_AYUDA = "DROP TABLE IF EXISTS " + TABLA_AYUDA;
 
 
 
@@ -61,6 +90,7 @@ public class MyDBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         //invocamos execSQL pq no devuelve ningún tipo de dataset
+        db.execSQL(CREATE_TABLA_AYUDA);
         db.execSQL(CREATE_TABLA_USUARIOS);
 
         Log.i("ONCREATE", "EJECUTO CREACION");
@@ -69,6 +99,7 @@ public class MyDBHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL(DATABASE_DROP_USUARIOS);
+        db.execSQL(DATABASE_DROP_AYUDA);
         this.onCreate(db);
 
     }

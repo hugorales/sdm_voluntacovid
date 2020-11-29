@@ -2,11 +2,14 @@ package es.uniovi.eii.voluntacovid;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import es.uniovi.eii.voluntacovid.datos.UsuariosDataSource;
 import es.uniovi.eii.voluntacovid.modelo.Usuario;
@@ -54,9 +57,23 @@ public class InicioSesionActivity extends AppCompatActivity {
                         txtUsuario.setError("El usuario no existe o contraseña no corresponde, en caso de que no tengas una cuenta, dale a crear cuenta");
                     }
                     else {
-                        Intent myIntent = new Intent(InicioSesionActivity.this, PaginaPrincipalActivity.class);
-                        myIntent.putExtra("key", 1); //Optional parameters
-                        InicioSesionActivity.this.startActivity(myIntent);
+                        SharedPreferences preferences = getSharedPreferences("usuarioSesion", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = preferences.edit();
+                        editor.putString("usuario",txtUsuario.getText().toString());
+                        editor.commit();
+                        if(usuario.getTipo().equals("NECESITADO")){
+                            Intent myIntent = new Intent(InicioSesionActivity.this, NecesitadoActivity.class);
+                            InicioSesionActivity.this.startActivity(myIntent);
+                        }else{
+                            Intent myIntent = new Intent(InicioSesionActivity.this, NecesitadoActivity.class);
+                            InicioSesionActivity.this.startActivity(myIntent);
+                        }
+                        Toast toast1 =
+                                Toast.makeText(getApplicationContext(),
+                                        "Inicio correcto", Toast.LENGTH_SHORT);
+
+                        toast1.show();
+
                     }
                 }
             }

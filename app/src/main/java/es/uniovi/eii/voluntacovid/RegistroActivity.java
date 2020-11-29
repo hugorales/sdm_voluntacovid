@@ -2,7 +2,9 @@ package es.uniovi.eii.voluntacovid;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -49,20 +51,32 @@ public class RegistroActivity extends AppCompatActivity {
                         usuarioAñadir.setTelefono(Integer.parseInt(txTelefono.getText().toString()));
                         usuarioAñadir.setDireccion(txDireccion.getText().toString());
                         usuarioAñadir.setCodigoPostal(Integer.parseInt(txCodigoPostal.getText().toString()));
-                        if(rdNecesitado.isChecked())
+                        guardarPreferencias(usuarioAñadir.getUsuario());
+                        if(rdNecesitado.isChecked()){
                             usuarioAñadir.setTipo("NECESITADO");
-                        else
+                            usuariosDataSource.createUser(usuarioAñadir);
+                            Intent myIntent = new Intent(RegistroActivity.this, NecesitadoActivity.class);
+                            RegistroActivity.this.startActivity(myIntent);
+                        }else{
                             usuarioAñadir.setTipo("VOLUNTARIO");
-                        usuariosDataSource.createUser(usuarioAñadir);
+                            usuariosDataSource.createUser(usuarioAñadir);
+                            Intent myIntent = new Intent(RegistroActivity.this, PaginaPrincipalActivity.class);
+                            RegistroActivity.this.startActivity(myIntent);
+                        }
 
-                        Intent myIntent = new Intent(RegistroActivity.this, PaginaPrincipalActivity.class);
-                        myIntent.putExtra("key", 1); //Optional parameters
-                        RegistroActivity.this.startActivity(myIntent);
+
                     }
                     usuariosDataSource.close();
                 }
             }
         });
+    }
+
+    private void guardarPreferencias(String usuario){
+        SharedPreferences preferences = getSharedPreferences("usuarioSesion", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("usuario",usuario);
+        editor.commit();
     }
 
     private boolean comprobarCampos(){
