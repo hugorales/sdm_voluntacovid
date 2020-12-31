@@ -90,6 +90,7 @@ public class MyDBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         //invocamos execSQL pq no devuelve ningún tipo de dataset
+
         db.execSQL(CREATE_TABLA_AYUDA);
         db.execSQL(CREATE_TABLA_USUARIOS);
 

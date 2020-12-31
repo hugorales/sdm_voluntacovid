@@ -46,7 +46,7 @@ public class NecesitadoActivity extends AppCompatActivity {
         ayudaDataSource.open();
         SharedPreferences preferences = getSharedPreferences("usuarioSesion", Context.MODE_PRIVATE);
         ListaNecesitadoAdaptador adaptador = new ListaNecesitadoAdaptador(ayudaDataSource.getAyudaByUser(preferences.getString("usuario","")));
-
+        ayudaDataSource.close();
         recycler.setAdapter(adaptador);
     }
 }

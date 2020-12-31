@@ -65,7 +65,7 @@ public class InicioSesionActivity extends AppCompatActivity {
                             Intent myIntent = new Intent(InicioSesionActivity.this, NecesitadoActivity.class);
                             InicioSesionActivity.this.startActivity(myIntent);
                         }else{
-                            Intent myIntent = new Intent(InicioSesionActivity.this, NecesitadoActivity.class);
+                            Intent myIntent = new Intent(InicioSesionActivity.this, VoluntarioActivity.class);
                             InicioSesionActivity.this.startActivity(myIntent);
                         }
                         Toast toast1 =

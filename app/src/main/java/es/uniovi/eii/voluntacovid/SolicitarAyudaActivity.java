@@ -3,6 +3,7 @@ package es.uniovi.eii.voluntacovid;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.AlteredCharSequence;
@@ -22,6 +23,7 @@ public class SolicitarAyudaActivity extends AppCompatActivity {
 
     private Button btnSolicitar;
     private Button btnCancelar;
+    private Button btnEliminar;
     private EditText edtTitulo,edtDescripcion;
 
     @Override
@@ -32,16 +34,17 @@ public class SolicitarAyudaActivity extends AppCompatActivity {
         edtTitulo = (EditText) findViewById(R.id.edtTitulo);
         edtDescripcion = (EditText) findViewById(R.id.edtDescripcion);
         btnSolicitar = (Button) findViewById(R.id.btnSolicitar);
-        btnCancelar = (Button) findViewById(R.id.btnCancelar);
+        // btnCancelar = (Button) findViewById(R.id.btnCancelar);
 
         btnSolicitar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(comprobarCampos()){
                     AyudaDataSource ayudaDataSource = new AyudaDataSource(getApplicationContext());
-                    ayudaDataSource.open();
                     Ayuda ayudaAñadir = new Ayuda();
+                    ayudaDataSource.open();
                     ayudaAñadir.setId(ayudaDataSource.getUltimoId()+1);
+                    ayudaDataSource.close();
                     SharedPreferences preferences = getSharedPreferences("usuarioSesion", Context.MODE_PRIVATE);
                     ayudaAñadir.setUsuario(preferences.getString("usuario","Sin identificar"));
                     ayudaAñadir.setTitulo(edtTitulo.getText().toString());
@@ -50,7 +53,17 @@ public class SolicitarAyudaActivity extends AppCompatActivity {
                     SimpleDateFormat fecc=new SimpleDateFormat("d MMMM 'del' yyyy");
                     ayudaAñadir.setFecha(fecc.format(d));
                     ayudaAñadir.setEstado("NO ASIGNADO");
+                    ayudaDataSource.open();
                     ayudaDataSource.createAyuda(ayudaAñadir);
+                    ayudaDataSource.close();
+
+                    Intent myIntent = new Intent(SolicitarAyudaActivity.this, NecesitadoActivity.class);
+                    SolicitarAyudaActivity.this.startActivity(myIntent);
+                    Toast toast1 =
+                            Toast.makeText(getApplicationContext(),
+                                    "Solicitud añadida", Toast.LENGTH_SHORT);
+
+                    toast1.show();
             }
         }});
     }
@@ -62,7 +75,7 @@ public class SolicitarAyudaActivity extends AppCompatActivity {
         }
         if(edtDescripcion.getText().toString().isEmpty()){
             edtDescripcion.setError("Inserte una descripción");
-            return  false;
+            return false;
         }
         return true;
     }

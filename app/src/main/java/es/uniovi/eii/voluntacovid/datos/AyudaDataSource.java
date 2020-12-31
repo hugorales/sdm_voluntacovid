@@ -95,6 +95,7 @@ public class AyudaDataSource {
             ayudaa.setFecha(cursor.getString(4));
             ayudaa.setEstado(cursor.getString(5));
             ayudaList.add(ayudaa);
+            cursor.moveToNext();
         }
         cursor.close();
 
@@ -102,11 +103,15 @@ public class AyudaDataSource {
     }
 
     public int getUltimoId(){
+        int result;
         Cursor cursor = database.rawQuery("Select Max(id) " +
                 " FROM " + MyDBHelper.TABLA_AYUDA,null);
         if(cursor.moveToFirst()){
-            return cursor.getInt(0);
+            result = cursor.getInt(0);
+            cursor.close();
+            return result;
         }
+        cursor.close();
         return 0;
     }
 }

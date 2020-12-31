@@ -11,9 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SolicitarAyudaActivity"></activity>
-        <activity android:name=".NecesitadoActivity"></activity>
-        <activity android:name=".PaginaPrincipalActivity" />
+        <activity android:name=".VoluntarioActivity"></activity>
         <activity android:name=".InicioSesionActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,6 +22,9 @@
         <activity
             android:name=".RegistroActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".SolicitarAyudaActivity" />
+        <activity android:name=".NecesitadoActivity" />
+        <activity android:name=".PaginaPrincipalActivity" />
     </application>
 
 </manifest>
