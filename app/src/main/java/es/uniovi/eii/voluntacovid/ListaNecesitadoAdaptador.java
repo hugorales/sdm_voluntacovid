@@ -13,9 +13,11 @@ import java.util.List;
 
 import es.uniovi.eii.voluntacovid.modelo.Ayuda;
 
-public class ListaNecesitadoAdaptador extends RecyclerView.Adapter<ListaNecesitadoAdaptador.ViewHolderDatos> {
+public class ListaNecesitadoAdaptador extends RecyclerView.Adapter<ListaNecesitadoAdaptador.ViewHolderDatos>
+            implements View.OnClickListener {
 
     List<Ayuda> listaNecesitado;
+    private View.OnClickListener listener;
 
     public ListaNecesitadoAdaptador(List<Ayuda> listaNecesitado) {
         this.listaNecesitado = listaNecesitado;
@@ -25,6 +27,7 @@ public class ListaNecesitadoAdaptador extends RecyclerView.Adapter<ListaNecesita
     @Override
     public ViewHolderDatos onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list,null,false);
+        view.setOnClickListener(this);
         return new ViewHolderDatos(view);
     }
 
@@ -36,6 +39,17 @@ public class ListaNecesitadoAdaptador extends RecyclerView.Adapter<ListaNecesita
     @Override
     public int getItemCount() {
         return listaNecesitado.size();
+    }
+
+    public void setOnClickListener(View.OnClickListener listener){
+        this.listener = listener;
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (listener!= null){
+            listener.onClick(v);
+        }
     }
 
     public class ViewHolderDatos extends RecyclerView.ViewHolder{

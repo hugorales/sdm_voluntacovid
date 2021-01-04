@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">VoluntaCovid</string>
+    <string-array name="listanecesitado">
+        <item>Tus solicitudes pendientes</item>
+        <item>Tus solicitudes aceptadas</item>
+        <item>Tus solicitudes completadas</item>
+    </string-array>
 </resources>

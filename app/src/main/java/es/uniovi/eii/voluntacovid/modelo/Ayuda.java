@@ -11,14 +11,18 @@ public class Ayuda implements Parcelable {
     private String descripcion;
     private String fecha;
     private String estado;
+    private int urgencia;
+    private String voluntario;
 
-    public Ayuda(int id, String usuario, String titulo, String descripcion, String fecha, String estado) {
+    public Ayuda(int id, String usuario, String titulo, String descripcion, String fecha, String estado, int urgencia,String voluntario) {
         this.id = id;
         this.usuario = usuario;
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.fecha = fecha;
         this.estado = estado;
+        this.urgencia = urgencia;
+        this.voluntario = voluntario;
     }
 
     public Ayuda(){
@@ -33,6 +37,8 @@ public class Ayuda implements Parcelable {
         descripcion = in.readString();
         fecha = in.readString();
         estado = in.readString();
+        urgencia = in.readInt();
+        voluntario = in.readString();
     }
 
     @Override
@@ -43,6 +49,8 @@ public class Ayuda implements Parcelable {
         dest.writeString(descripcion);
         dest.writeString(fecha);
         dest.writeString(estado);
+        dest.writeInt(urgencia);
+        dest.writeString(voluntario);
     }
 
     @Override
@@ -108,5 +116,21 @@ public class Ayuda implements Parcelable {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public int getUrgencia() {
+        return urgencia;
+    }
+
+    public void setUrgencia(int urgencia) {
+        this.urgencia = urgencia;
+    }
+
+    public String getVoluntario() {
+        return voluntario;
+    }
+
+    public void setVoluntario(String voluntario) {
+        this.voluntario = voluntario;
     }
 }
