@@ -22,9 +22,8 @@ import es.uniovi.eii.voluntacovid.modelo.Ayuda;
 public class SolicitarAyudaActivity extends AppCompatActivity {
 
     private Button btnSolicitar;
-    private Button btnCancelar;
     private Button btnEliminar;
-    private EditText edtTitulo,edtDescripcion;
+    private EditText edtTitulo,edtDescripcion,edtUrgencia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +32,7 @@ public class SolicitarAyudaActivity extends AppCompatActivity {
 
         edtTitulo = (EditText) findViewById(R.id.edtTitulo);
         edtDescripcion = (EditText) findViewById(R.id.edtDescripcion);
+        edtUrgencia = (EditText) findViewById(R.id.edtUrgencia);
         btnSolicitar = (Button) findViewById(R.id.btnSolicitar);
         // btnCancelar = (Button) findViewById(R.id.btnCancelar);
 
@@ -52,7 +52,9 @@ public class SolicitarAyudaActivity extends AppCompatActivity {
                     Date d = new Date();
                     SimpleDateFormat fecc=new SimpleDateFormat("d MMMM 'del' yyyy");
                     ayudaAñadir.setFecha(fecc.format(d));
-                    ayudaAñadir.setEstado("NO ASIGNADO");
+                    ayudaAñadir.setEstado("PENDIENTE");
+                    ayudaAñadir.setUrgencia(1);
+                    ayudaAñadir.setVoluntario("NO ASIGNADO");
                     ayudaDataSource.open();
                     ayudaDataSource.createAyuda(ayudaAñadir);
                     ayudaDataSource.close();
@@ -75,6 +77,10 @@ public class SolicitarAyudaActivity extends AppCompatActivity {
         }
         if(edtDescripcion.getText().toString().isEmpty()){
             edtDescripcion.setError("Inserte una descripción");
+            return false;
+        }
+        if(Integer.parseInt(edtUrgencia.getText().toString()) < 1 || Integer.parseInt(edtUrgencia.getText().toString()) > 10){
+            edtUrgencia.setError("Inserte un valor entre 1 y 10");
             return false;
         }
         return true;

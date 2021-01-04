@@ -5,6 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +20,7 @@ public class AyudaDataSource {
     private MyDBHelper dbHelper;
 
     private final String[] allColumns = { MyDBHelper.COLUMNA_ID_AYUDA, MyDBHelper.COLUMNA_USUARIO_AYUDA,
-            MyDBHelper.COLUMNA_TITULO_AYUDA,MyDBHelper.COLUMNA_DESCRIPCION_AYUDA,MyDBHelper.COLUMNA_FECHA_AYUDA,MyDBHelper.COLUMNA_ESTADO_AYUDA};
+            MyDBHelper.COLUMNA_TITULO_AYUDA,MyDBHelper.COLUMNA_DESCRIPCION_AYUDA,MyDBHelper.COLUMNA_FECHA_AYUDA,MyDBHelper.COLUMNA_ESTADO_AYUDA,MyDBHelper.COLUMNA_URGENCIA_AYUDA,MyDBHelper.COLUMNA_VOLUNTARIO_AYUDA};
 
     public AyudaDataSource(Context context){
         dbHelper = new MyDBHelper(context, null, null, 1);
@@ -42,10 +44,13 @@ public class AyudaDataSource {
         values.put(MyDBHelper.COLUMNA_DESCRIPCION_AYUDA, ayuda.getDescripcion());
         values.put(MyDBHelper.COLUMNA_FECHA_AYUDA, ayuda.getFecha());
         values.put(MyDBHelper.COLUMNA_ESTADO_AYUDA, ayuda.getEstado());
+        values.put(MyDBHelper.COLUMNA_URGENCIA_AYUDA, ayuda.getUrgencia());
+        values.put(MyDBHelper.COLUMNA_VOLUNTARIO_AYUDA,ayuda.getVoluntario());
 
         // Insertamos la valoracion
         long insertId =
                 database.insert(MyDBHelper.TABLA_AYUDA, null, values);
+        Log.d("Insertada" + ayuda.getUrgencia(),"HOLAA");
 
         return insertId;
     }
@@ -67,6 +72,8 @@ public class AyudaDataSource {
             ayuda.setDescripcion(cursor.getString(3));
             ayuda.setFecha(cursor.getString(4));
             ayuda.setEstado(cursor.getString(5));
+            ayuda.setUrgencia(cursor.getInt(6));
+            ayuda.setVoluntario(cursor.getString(7));
             ayudaList.add(ayuda);
             cursor.moveToNext();
         }
@@ -94,6 +101,34 @@ public class AyudaDataSource {
             ayudaa.setDescripcion(cursor.getString(3));
             ayudaa.setFecha(cursor.getString(4));
             ayudaa.setEstado(cursor.getString(5));
+            ayudaa.setUrgencia(cursor.getInt(6));
+            ayudaa.setVoluntario(cursor.getString(7));
+            ayudaList.add(ayudaa);
+            cursor.moveToNext();
+        }
+        cursor.close();
+
+        return ayudaList;
+    }
+
+    public List<Ayuda> getAyudaByUserAndStatus(String usuario,String status) {
+        List<Ayuda> ayudaList = new ArrayList<Ayuda>();
+
+        Cursor cursor = database.rawQuery("Select * " +
+                " FROM " + MyDBHelper.TABLA_AYUDA +
+                " WHERE " + MyDBHelper.TABLA_AYUDA + "." + MyDBHelper.COLUMNA_USUARIO_AYUDA + " = \"" + usuario + "\"" + "AND " +MyDBHelper.TABLA_AYUDA + "." + MyDBHelper.COLUMNA_ESTADO_AYUDA + " = \"" + status + "\"", null);
+
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()){
+            Ayuda ayudaa = new Ayuda();
+            ayudaa.setId(cursor.getInt(0));
+            ayudaa.setUsuario(cursor.getString(1));
+            ayudaa.setTitulo(cursor.getString(2));
+            ayudaa.setDescripcion(cursor.getString(3));
+            ayudaa.setFecha(cursor.getString(4));
+            ayudaa.setEstado(cursor.getString(5));
+            ayudaa.setUrgencia(cursor.getInt(6));
+            ayudaa.setVoluntario(cursor.getString(7));
             ayudaList.add(ayudaa);
             cursor.moveToNext();
         }
