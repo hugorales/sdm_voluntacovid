@@ -102,4 +102,18 @@ public class UsuariosDataSource {
 
         return user;
     }
+
+    public List<String> getUsersByCP(int codigoPostal){
+        List<String> listaUsuarios = new ArrayList<String>();
+        Cursor cursor = database.rawQuery("Select usuario " +
+                " FROM " + MyDBHelper.TABLA_USUARIOS +
+                " WHERE " + MyDBHelper.TABLA_USUARIOS + "." + MyDBHelper.COLUMNA_CODIGOPOSTAL_USUARIOS + " = \"" + codigoPostal + "\"" + " AND " + MyDBHelper.TABLA_USUARIOS +"." +MyDBHelper.COLUMNA_TIPO_USUARIOS + "= \"" + "NECESITADO"+"\"", null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()){
+            listaUsuarios.add(cursor.getString(0));
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return listaUsuarios;
+    }
 }

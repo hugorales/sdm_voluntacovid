@@ -5,4 +5,9 @@
         <item>Tus solicitudes aceptadas</item>
         <item>Tus solicitudes completadas</item>
     </string-array>
+    <string-array name="listavoluntario">
+        <item>Ayudas disponibles</item>
+        <item>Tus ayudas en proceso</item>
+        <item>Tus ayudas realizadas</item>
+    </string-array>
 </resources>
