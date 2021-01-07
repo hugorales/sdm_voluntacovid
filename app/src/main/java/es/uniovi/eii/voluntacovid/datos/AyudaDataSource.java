@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import es.uniovi.eii.voluntacovid.modelo.Ayuda;
+import es.uniovi.eii.voluntacovid.modelo.Usuario;
 
 public class AyudaDataSource {
 
@@ -53,6 +54,10 @@ public class AyudaDataSource {
         Log.d("Insertada" + ayuda.getUrgencia(),"HOLAA");
 
         return insertId;
+    }
+
+    public void deleteAyuda(int id){
+        database.delete(MyDBHelper.TABLA_AYUDA,"id="+id,null);
     }
 
     public List<Ayuda> getAllAyuda() {
@@ -148,5 +153,40 @@ public class AyudaDataSource {
         }
         cursor.close();
         return 0;
+    }
+
+    public List<Ayuda> getAyudaByUsers(List<String> listaUsuarios){
+        String query="(";
+        for(int i=0;i<listaUsuarios.size();i++){
+            if(i==listaUsuarios.size()-1){
+                query += "\""+listaUsuarios.get(i)+"\")";
+            }else{
+                query += "\""+listaUsuarios.get(i)+"\",";
+            }
+        }
+        if(listaUsuarios.size()==0){
+            query+=")";
+        }
+        String query1 = " order by urgencia desc";
+        List<Ayuda> listaAyuda = new ArrayList<Ayuda>();
+        Cursor cursor = database.rawQuery("Select * " +
+                " FROM " + MyDBHelper.TABLA_AYUDA +
+                " WHERE " + MyDBHelper.TABLA_AYUDA + "." + MyDBHelper.COLUMNA_USUARIO_AYUDA + " IN " + query + query1, null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()){
+            Ayuda ayudaa = new Ayuda();
+            ayudaa.setId(cursor.getInt(0));
+            ayudaa.setUsuario(cursor.getString(1));
+            ayudaa.setTitulo(cursor.getString(2));
+            ayudaa.setDescripcion(cursor.getString(3));
+            ayudaa.setFecha(cursor.getString(4));
+            ayudaa.setEstado(cursor.getString(5));
+            ayudaa.setUrgencia(cursor.getInt(6));
+            ayudaa.setVoluntario(cursor.getString(7));
+            listaAyuda.add(ayudaa);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return listaAyuda;
     }
 }

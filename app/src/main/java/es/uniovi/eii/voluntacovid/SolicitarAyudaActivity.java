@@ -53,7 +53,7 @@ public class SolicitarAyudaActivity extends AppCompatActivity {
                     SimpleDateFormat fecc=new SimpleDateFormat("d MMMM 'del' yyyy");
                     ayudaAñadir.setFecha(fecc.format(d));
                     ayudaAñadir.setEstado("PENDIENTE");
-                    ayudaAñadir.setUrgencia(1);
+                    ayudaAñadir.setUrgencia(Integer.parseInt(edtUrgencia.getText().toString()));
                     ayudaAñadir.setVoluntario("NO ASIGNADO");
                     ayudaDataSource.open();
                     ayudaDataSource.createAyuda(ayudaAñadir);
@@ -61,6 +61,7 @@ public class SolicitarAyudaActivity extends AppCompatActivity {
 
                     Intent myIntent = new Intent(SolicitarAyudaActivity.this, NecesitadoActivity.class);
                     SolicitarAyudaActivity.this.startActivity(myIntent);
+                    finish();
                     Toast toast1 =
                             Toast.makeText(getApplicationContext(),
                                     "Solicitud añadida", Toast.LENGTH_SHORT);

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import es.uniovi.eii.voluntacovid.datos.AyudaDataSource;
 import es.uniovi.eii.voluntacovid.modelo.Ayuda;
 
 public class DetalleAyudaPendiente extends AppCompatActivity {
@@ -46,16 +48,23 @@ public class DetalleAyudaPendiente extends AppCompatActivity {
                 AlertDialog.Builder alerta = new AlertDialog.Builder(DetalleAyudaPendiente.this);
                 alerta.setMessage("¿Seguro que desea eliminar la solicitud de ayuda?");
                 alerta.setTitle("Eliminar solicitud de ayuda");
-                alerta.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                alerta.setCancelable(false);
+                alerta.setPositiveButton("NO", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();
                     }
                 });
-                alerta.setPositiveButton("SI", new DialogInterface.OnClickListener() {
+                alerta.setNegativeButton("SI", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
+                        AyudaDataSource ayudaDataSource = new AyudaDataSource(getApplicationContext());
+                        ayudaDataSource.open();
+                        ayudaDataSource.deleteAyuda(ayuda.getId());
+                        ayudaDataSource.close();
+                        Intent intent = new Intent(DetalleAyudaPendiente.this, NecesitadoActivity.class);
+                        startActivity(intent);
+                        finish();
                     }
                 });
                 AlertDialog dialog = alerta.create();

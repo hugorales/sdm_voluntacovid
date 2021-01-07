@@ -8,6 +8,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -48,8 +50,8 @@ public class NecesitadoActivity extends AppCompatActivity {
                 AyudaDataSource ayudaDataSource = new AyudaDataSource(getApplicationContext());
                 ayudaDataSource.open();
                 SharedPreferences preferences = getSharedPreferences("usuarioSesion", Context.MODE_PRIVATE);
-                final List<Ayuda> listaAyuda = ayudaDataSource.getAyudaByUserAndStatus(preferences.getString("usuario",""),"PENDIENTE");
                 if(position==0){
+                    final List<Ayuda> listaAyuda = ayudaDataSource.getAyudaByUserAndStatus(preferences.getString("usuario",""),"PENDIENTE");
                     ListaNecesitadoAdaptador adaptador = new ListaNecesitadoAdaptador(listaAyuda);
                     adaptador.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -85,5 +87,23 @@ public class NecesitadoActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu_desconectar,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id = item.getItemId();
+        if(id==R.id.desconectarse){
+            Intent intent = new Intent(NecesitadoActivity.this, InicioSesionActivity.class);
+            startActivity(intent);
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

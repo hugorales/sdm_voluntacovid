@@ -64,9 +64,11 @@ public class InicioSesionActivity extends AppCompatActivity {
                         if(usuario.getTipo().equals("NECESITADO")){
                             Intent myIntent = new Intent(InicioSesionActivity.this, NecesitadoActivity.class);
                             InicioSesionActivity.this.startActivity(myIntent);
+                            finish();
                         }else{
                             Intent myIntent = new Intent(InicioSesionActivity.this, VoluntarioActivity.class);
                             InicioSesionActivity.this.startActivity(myIntent);
+                            finish();
                         }
                         Toast toast1 =
                                 Toast.makeText(getApplicationContext(),
