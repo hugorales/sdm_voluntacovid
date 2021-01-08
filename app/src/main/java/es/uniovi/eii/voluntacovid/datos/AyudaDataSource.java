@@ -171,7 +171,7 @@ public class AyudaDataSource {
         List<Ayuda> listaAyuda = new ArrayList<Ayuda>();
         Cursor cursor = database.rawQuery("Select * " +
                 " FROM " + MyDBHelper.TABLA_AYUDA +
-                " WHERE " + MyDBHelper.TABLA_AYUDA + "." + MyDBHelper.COLUMNA_USUARIO_AYUDA + " IN " + query + query1, null);
+                " WHERE " + MyDBHelper.TABLA_AYUDA + "." + MyDBHelper.COLUMNA_ESTADO_AYUDA + "=" + "'PENDIENTE' AND " + MyDBHelper.TABLA_AYUDA + "." + MyDBHelper.COLUMNA_USUARIO_AYUDA + " IN " + query + query1, null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()){
             Ayuda ayudaa = new Ayuda();
@@ -188,5 +188,38 @@ public class AyudaDataSource {
         }
         cursor.close();
         return listaAyuda;
+    }
+
+    public void asignarAyudaAVoluntario(int idAyuda,String voluntario){
+        ContentValues values = new ContentValues();
+        values.put("estado","ASIGNADO");
+        values.put("voluntario",voluntario);
+        database.update(MyDBHelper.TABLA_AYUDA,values,"id="+idAyuda,null);
+    }
+
+    public List<Ayuda> getAyudasByEstadoAndVolunario(String estado,String voluntario){
+        List<Ayuda> ayudaList = new ArrayList<Ayuda>();
+
+        Cursor cursor = database.rawQuery("Select * " +
+                " FROM " + MyDBHelper.TABLA_AYUDA +
+                " WHERE " + MyDBHelper.TABLA_AYUDA + "." + MyDBHelper.COLUMNA_ESTADO_AYUDA + " = \"" + estado + "\"" + "AND " +MyDBHelper.TABLA_AYUDA + "." + MyDBHelper.COLUMNA_VOLUNTARIO_AYUDA + " = \"" + voluntario + "\"", null);
+
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()){
+            Ayuda ayudaa = new Ayuda();
+            ayudaa.setId(cursor.getInt(0));
+            ayudaa.setUsuario(cursor.getString(1));
+            ayudaa.setTitulo(cursor.getString(2));
+            ayudaa.setDescripcion(cursor.getString(3));
+            ayudaa.setFecha(cursor.getString(4));
+            ayudaa.setEstado(cursor.getString(5));
+            ayudaa.setUrgencia(cursor.getInt(6));
+            ayudaa.setVoluntario(cursor.getString(7));
+            ayudaList.add(ayudaa);
+            cursor.moveToNext();
+        }
+        cursor.close();
+
+        return ayudaList;
     }
 }

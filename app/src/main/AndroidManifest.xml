@@ -11,7 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DetalleAyudaPendiente"></activity>
+        <activity android:name=".DetalleAyudaProcesoVoluntario"></activity>
+        <activity android:name=".DetalleAyudaCompletada" />
+        <activity android:name=".DetalleAyudaAsignada" />
+        <activity android:name=".DetalleAyudaPendienteVoluntario" />
+        <activity android:name=".DetalleAyudaPendiente" />
         <activity android:name=".VoluntarioActivity" />
         <activity android:name=".InicioSesionActivity">
             <intent-filter>

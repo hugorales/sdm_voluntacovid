@@ -63,7 +63,16 @@ public class NecesitadoActivity extends AppCompatActivity {
                     });
                     recycler.setAdapter(adaptador);
                 }else if(position==1){
-                    ListaNecesitadoAdaptador adaptador = new ListaNecesitadoAdaptador(ayudaDataSource.getAyudaByUserAndStatus(preferences.getString("usuario",""),"ASIGNADO"));
+                    final List<Ayuda> listaAyuda1 = ayudaDataSource.getAyudaByUserAndStatus(preferences.getString("usuario",""),"ASIGNADO");
+                    ListaNecesitadoAdaptador adaptador = new ListaNecesitadoAdaptador(listaAyuda1);
+                    adaptador.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(NecesitadoActivity.this, DetalleAyudaAsignada.class);
+                            intent.putExtra("ayuda",listaAyuda1.get(recycler.getChildAdapterPosition(v)));
+                            startActivity(intent);
+                        }
+                    });
                     recycler.setAdapter(adaptador);
                 }else{
                     ListaNecesitadoAdaptador adaptador = new ListaNecesitadoAdaptador(ayudaDataSource.getAyudaByUserAndStatus(preferences.getString("usuario",""),"COMPLETADO"));

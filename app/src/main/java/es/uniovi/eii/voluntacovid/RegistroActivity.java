@@ -57,11 +57,13 @@ public class RegistroActivity extends AppCompatActivity {
                             usuariosDataSource.createUser(usuarioAñadir);
                             Intent myIntent = new Intent(RegistroActivity.this, NecesitadoActivity.class);
                             RegistroActivity.this.startActivity(myIntent);
+                            finish();
                         }else{
                             usuarioAñadir.setTipo("VOLUNTARIO");
                             usuariosDataSource.createUser(usuarioAñadir);
                             Intent myIntent = new Intent(RegistroActivity.this, PaginaPrincipalActivity.class);
                             RegistroActivity.this.startActivity(myIntent);
+                            finish();
                         }
 
 
