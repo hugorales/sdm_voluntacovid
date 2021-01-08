@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetalleAyudaPendiente">
+    tools:context=".DetalleAyudaProcesoVoluntario">
 
     <TextView
-        android:id="@+id/txUrgenciaDetalle1"
+        android:id="@+id/txUrgenciaProcesoVoluntarioDetalle1"
         android:layout_width="323dp"
         android:layout_height="37dp"
         android:text="TextView"
@@ -16,11 +16,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txUrgenciaDetalle"
+        app:layout_constraintTop_toBottomOf="@+id/txUrgenciaProcesoVoluntarioDetalle"
         app:layout_constraintVertical_bias="0.126" />
 
     <TextView
-        android:id="@+id/txUrgenciaDetalle"
+        android:id="@+id/txUrgenciaProcesoVoluntarioDetalle"
         android:layout_width="134dp"
         android:layout_height="26dp"
         android:text="URGENCIA"
@@ -35,7 +35,7 @@
         app:layout_constraintVertical_bias="0.801" />
 
     <TextView
-        android:id="@+id/txVoluntarioDetalle1"
+        android:id="@+id/txNecesitadoProcesoVoluntarioDetalle1"
         android:layout_width="323dp"
         android:layout_height="37dp"
         android:text="TextView"
@@ -44,14 +44,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txVoluntarioDetalle"
+        app:layout_constraintTop_toBottomOf="@+id/txNecesitadoProcesoVoluntarioDetalle"
         app:layout_constraintVertical_bias="0.093" />
 
     <TextView
-        android:id="@+id/txVoluntarioDetalle"
+        android:id="@+id/txNecesitadoProcesoVoluntarioDetalle"
         android:layout_width="134dp"
         android:layout_height="26dp"
-        android:text="VOLUNTARIO"
+        android:text="NECESITADO"
         android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -62,22 +62,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.675" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="20dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="20dp" />
-
     <TextView
-        android:id="@+id/txTituloDetalle1"
+        android:id="@+id/txTituloProcesoVoluntarioDetalle1"
         android:layout_width="323dp"
         android:layout_height="37dp"
         android:text="TextView"
@@ -86,11 +72,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txTituloDetalle"
+        app:layout_constraintTop_toBottomOf="@+id/txTituloProcesoVoluntarioDetalle"
         app:layout_constraintVertical_bias="0.025" />
 
     <TextView
-        android:id="@+id/txDescripcionDetalle"
+        android:id="@+id/txDescripcionProcesoVoluntarioDetalle"
         android:layout_width="134dp"
         android:layout_height="26dp"
         android:text="DESCRIPCIÓN"
@@ -105,7 +91,7 @@
         app:layout_constraintVertical_bias="0.151" />
 
     <TextView
-        android:id="@+id/txTituloDetalle"
+        android:id="@+id/txTituloProcesoVoluntarioDetalle"
         android:layout_width="63dp"
         android:layout_height="23dp"
         android:text="TÍTULO"
@@ -119,7 +105,7 @@
         app:layout_constraintVertical_bias="0.018" />
 
     <TextView
-        android:id="@+id/txDescripcionDetalle1"
+        android:id="@+id/txDescripcionProcesoVoluntarioDetalle1"
         android:layout_width="321dp"
         android:layout_height="120dp"
         android:text="TextView"
@@ -129,11 +115,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txDescripcionDetalle"
+        app:layout_constraintTop_toBottomOf="@+id/txDescripcionProcesoVoluntarioDetalle"
         app:layout_constraintVertical_bias="0.033" />
 
     <TextView
-        android:id="@+id/txFechaDetalle"
+        android:id="@+id/txFechaProcesoVoluntarioDetalle"
         android:layout_width="134dp"
         android:layout_height="26dp"
         android:text="FECHA"
@@ -148,7 +134,7 @@
         app:layout_constraintVertical_bias="0.402" />
 
     <TextView
-        android:id="@+id/txEstadoDetalle"
+        android:id="@+id/txEstadoProcesoVoluntarioDetalle"
         android:layout_width="134dp"
         android:layout_height="26dp"
         android:text="ESTADO"
@@ -163,7 +149,7 @@
         app:layout_constraintVertical_bias="0.55" />
 
     <TextView
-        android:id="@+id/txFechaDetalle1"
+        android:id="@+id/txFechaProcesoVoluntarioDetalle1"
         android:layout_width="323dp"
         android:layout_height="37dp"
         android:text="TextView"
@@ -173,11 +159,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.522"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txFechaDetalle"
+        app:layout_constraintTop_toBottomOf="@+id/txFechaProcesoVoluntarioDetalle"
         app:layout_constraintVertical_bias="0.033" />
 
     <TextView
-        android:id="@+id/txEstadoDetalle1"
+        android:id="@+id/txEstadoProcesoVoluntarioDetalle1"
         android:layout_width="323dp"
         android:layout_height="37dp"
         android:text="TextView"
@@ -186,18 +172,19 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txEstadoDetalle"
+        app:layout_constraintTop_toBottomOf="@+id/txEstadoProcesoVoluntarioDetalle"
         app:layout_constraintVertical_bias="0.054" />
 
     <Button
-        android:id="@+id/btnEliminarSolicitud"
-        android:layout_width="225dp"
-        android:layout_height="44dp"
-        android:background="@android:color/holo_red_dark"
-        android:text="ELIMINAR SOLICITUD"
+        android:id="@+id/btnInformacionNecesitado"
+        android:layout_width="172dp"
+        android:layout_height="41dp"
+        android:background="@android:color/holo_blue_dark"
+        android:text="INFORMACIÓN NECESITADO"
         android:textColor="@color/design_default_color_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976" />

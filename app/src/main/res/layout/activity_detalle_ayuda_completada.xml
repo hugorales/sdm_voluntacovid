@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetalleAyudaPendiente">
+    tools:context=".DetalleAyudaCompletada">
 
     <TextView
-        android:id="@+id/txUrgenciaDetalle1"
+        android:id="@+id/txUrgenciaDetalleCompletada1"
         android:layout_width="323dp"
         android:layout_height="37dp"
         android:text="TextView"
@@ -16,11 +16,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txUrgenciaDetalle"
+        app:layout_constraintTop_toBottomOf="@+id/txUrgenciaDetalleCompletada"
         app:layout_constraintVertical_bias="0.126" />
 
     <TextView
-        android:id="@+id/txUrgenciaDetalle"
+        android:id="@+id/txUrgenciaDetalleCompletada"
         android:layout_width="134dp"
         android:layout_height="26dp"
         android:text="URGENCIA"
@@ -35,7 +35,7 @@
         app:layout_constraintVertical_bias="0.801" />
 
     <TextView
-        android:id="@+id/txVoluntarioDetalle1"
+        android:id="@+id/txVoluntarioDetalleCompletada1"
         android:layout_width="323dp"
         android:layout_height="37dp"
         android:text="TextView"
@@ -44,11 +44,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txVoluntarioDetalle"
+        app:layout_constraintTop_toBottomOf="@+id/txVoluntarioDetalleCompletada"
         app:layout_constraintVertical_bias="0.093" />
 
     <TextView
-        android:id="@+id/txVoluntarioDetalle"
+        android:id="@+id/txVoluntarioDetalleCompletada"
         android:layout_width="134dp"
         android:layout_height="26dp"
         android:text="VOLUNTARIO"
@@ -62,22 +62,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.675" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="20dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="20dp" />
-
     <TextView
-        android:id="@+id/txTituloDetalle1"
+        android:id="@+id/txTituloDetalleCompletada1"
         android:layout_width="323dp"
         android:layout_height="37dp"
         android:text="TextView"
@@ -86,11 +72,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txTituloDetalle"
-        app:layout_constraintVertical_bias="0.025" />
+        app:layout_constraintTop_toBottomOf="@+id/txTituloDetalleCompletada"
+        app:layout_constraintVertical_bias="0.021" />
 
     <TextView
-        android:id="@+id/txDescripcionDetalle"
+        android:id="@+id/txDescripcionDetalleCompletada"
         android:layout_width="134dp"
         android:layout_height="26dp"
         android:text="DESCRIPCIÓN"
@@ -105,7 +91,7 @@
         app:layout_constraintVertical_bias="0.151" />
 
     <TextView
-        android:id="@+id/txTituloDetalle"
+        android:id="@+id/txTituloDetalleCompletada"
         android:layout_width="63dp"
         android:layout_height="23dp"
         android:text="TÍTULO"
@@ -119,7 +105,7 @@
         app:layout_constraintVertical_bias="0.018" />
 
     <TextView
-        android:id="@+id/txDescripcionDetalle1"
+        android:id="@+id/txDescripcionDetalleCompletada1"
         android:layout_width="321dp"
         android:layout_height="120dp"
         android:text="TextView"
@@ -129,11 +115,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txDescripcionDetalle"
+        app:layout_constraintTop_toBottomOf="@+id/txDescripcionDetalleCompletada"
         app:layout_constraintVertical_bias="0.033" />
 
     <TextView
-        android:id="@+id/txFechaDetalle"
+        android:id="@+id/txFechaDetalleCompletada"
         android:layout_width="134dp"
         android:layout_height="26dp"
         android:text="FECHA"
@@ -148,7 +134,7 @@
         app:layout_constraintVertical_bias="0.402" />
 
     <TextView
-        android:id="@+id/txEstadoDetalle"
+        android:id="@+id/txEstadoDetalleCompletada"
         android:layout_width="134dp"
         android:layout_height="26dp"
         android:text="ESTADO"
@@ -163,7 +149,7 @@
         app:layout_constraintVertical_bias="0.55" />
 
     <TextView
-        android:id="@+id/txFechaDetalle1"
+        android:id="@+id/txFechaDetalleCompletada1"
         android:layout_width="323dp"
         android:layout_height="37dp"
         android:text="TextView"
@@ -173,11 +159,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.522"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txFechaDetalle"
-        app:layout_constraintVertical_bias="0.033" />
+        app:layout_constraintTop_toBottomOf="@+id/txFechaDetalleCompletada"
+        app:layout_constraintVertical_bias="0.026" />
 
     <TextView
-        android:id="@+id/txEstadoDetalle1"
+        android:id="@+id/txEstadoDetalleCompletada1"
         android:layout_width="323dp"
         android:layout_height="37dp"
         android:text="TextView"
@@ -186,20 +172,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txEstadoDetalle"
+        app:layout_constraintTop_toBottomOf="@+id/txEstadoDetalleCompletada"
         app:layout_constraintVertical_bias="0.054" />
-
-    <Button
-        android:id="@+id/btnEliminarSolicitud"
-        android:layout_width="225dp"
-        android:layout_height="44dp"
-        android:background="@android:color/holo_red_dark"
-        android:text="ELIMINAR SOLICITUD"
-        android:textColor="@color/design_default_color_background"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

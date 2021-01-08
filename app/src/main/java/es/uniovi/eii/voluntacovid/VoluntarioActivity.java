@@ -20,6 +20,7 @@ import java.util.List;
 
 import es.uniovi.eii.voluntacovid.datos.AyudaDataSource;
 import es.uniovi.eii.voluntacovid.datos.UsuariosDataSource;
+import es.uniovi.eii.voluntacovid.modelo.Ayuda;
 import es.uniovi.eii.voluntacovid.modelo.Usuario;
 
 public class VoluntarioActivity extends AppCompatActivity {
@@ -47,8 +48,31 @@ public class VoluntarioActivity extends AppCompatActivity {
                     Usuario usuarioSesion = usuariosDataSource.getUserByUser(preferences.getString("usuario",""));
                     List<String> usuarios = usuariosDataSource.getUsersByCP(usuarioSesion.getCodigoPostal());
                     usuariosDataSource.close();
-                    ListaNecesitadoAdaptador adaptador = new ListaNecesitadoAdaptador(ayudaDataSource.getAyudaByUsers(usuarios));
+                    final List<Ayuda> listaAyuda = ayudaDataSource.getAyudaByUsers(usuarios);
+                    ListaNecesitadoAdaptador adaptador = new ListaNecesitadoAdaptador(listaAyuda);
+                    adaptador.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(VoluntarioActivity.this, DetalleAyudaPendienteVoluntario.class);
+                            intent.putExtra("ayuda",listaAyuda.get(recycler.getChildAdapterPosition(v)));
+                            startActivity(intent);
+                        }
+                    });
                     recycler.setAdapter(adaptador);
+                }else if(position == 1){
+                    final List<Ayuda> listaAyuda1 = ayudaDataSource.getAyudasByEstadoAndVolunario("ASIGNADO",preferences.getString("usuario",""));
+                    ListaNecesitadoAdaptador adaptador = new ListaNecesitadoAdaptador(listaAyuda1);
+                    adaptador.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(VoluntarioActivity.this, DetalleAyudaProcesoVoluntario.class);
+                            intent.putExtra("ayuda",listaAyuda1.get(recycler.getChildAdapterPosition(v)));
+                            startActivity(intent);
+                        }
+                    });
+                    recycler.setAdapter(adaptador);
+                }else {
+
                 }
                 ayudaDataSource.close();
             }
