@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetalleAyudaCompletadaVoluntario">
+
+    <TextView
+        android:id="@+id/txUrgenciaCompletadaVoluntarioDetalle1"
+        android:layout_width="323dp"
+        android:layout_height="37dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txUrgenciaCompletadaVoluntarioDetalle"
+        app:layout_constraintVertical_bias="0.126" />
+
+    <TextView
+        android:id="@+id/txUrgenciaCompletadaVoluntarioDetalle"
+        android:layout_width="134dp"
+        android:layout_height="26dp"
+        android:text="URGENCIA"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.801" />
+
+    <TextView
+        android:id="@+id/txNecesitadoCompletadaVoluntarioDetalle1"
+        android:layout_width="323dp"
+        android:layout_height="37dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txNecesitadoCompletadaVoluntarioDetalle"
+        app:layout_constraintVertical_bias="0.093" />
+
+    <TextView
+        android:id="@+id/txNecesitadoCompletadaVoluntarioDetalle"
+        android:layout_width="134dp"
+        android:layout_height="26dp"
+        android:text="NECESITADO"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.675" />
+
+    <TextView
+        android:id="@+id/txTituloCompletadaVoluntarioDetalle1"
+        android:layout_width="323dp"
+        android:layout_height="37dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txTituloCompletadaVoluntarioDetalle"
+        app:layout_constraintVertical_bias="0.025" />
+
+    <TextView
+        android:id="@+id/txDescripcionCompletadaVoluntarioDetalle"
+        android:layout_width="134dp"
+        android:layout_height="26dp"
+        android:text="DESCRIPCIÓN"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.151" />
+
+    <TextView
+        android:id="@+id/txTituloCompletadaVoluntarioDetalle"
+        android:layout_width="63dp"
+        android:layout_height="23dp"
+        android:text="TÍTULO"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.018" />
+
+    <TextView
+        android:id="@+id/txDescripcionCompletadaVoluntarioDetalle1"
+        android:layout_width="321dp"
+        android:layout_height="120dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txDescripcionCompletadaVoluntarioDetalle"
+        app:layout_constraintVertical_bias="0.033" />
+
+    <TextView
+        android:id="@+id/txFechaCompletadaVoluntarioDetalle"
+        android:layout_width="134dp"
+        android:layout_height="26dp"
+        android:text="FECHA"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.402" />
+
+    <TextView
+        android:id="@+id/txEstadoCompletadaVoluntarioDetalle"
+        android:layout_width="134dp"
+        android:layout_height="26dp"
+        android:text="ESTADO"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.55" />
+
+    <TextView
+        android:id="@+id/txFechaCompletadaVoluntarioDetalle1"
+        android:layout_width="323dp"
+        android:layout_height="37dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.522"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txFechaCompletadaVoluntarioDetalle"
+        app:layout_constraintVertical_bias="0.033" />
+
+    <TextView
+        android:id="@+id/txEstadoCompletadaVoluntarioDetalle1"
+        android:layout_width="323dp"
+        android:layout_height="37dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txEstadoCompletadaVoluntarioDetalle"
+        app:layout_constraintVertical_bias="0.054" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

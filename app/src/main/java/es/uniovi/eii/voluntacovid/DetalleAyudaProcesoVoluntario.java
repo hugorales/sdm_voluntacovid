@@ -47,7 +47,11 @@ public class DetalleAyudaProcesoVoluntario extends AppCompatActivity {
         btnInformacionNecesitado.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                InfoUsuarioFragment infoUsuarioFragment = new InfoUsuarioFragment();
+                Bundle args = new Bundle();
+                args.putString("usuario",ayuda.getUsuario());
+                infoUsuarioFragment.setArguments(args);
+                infoUsuarioFragment.show(getSupportFragmentManager(),"InfoUsuario");
             }
         });
     }

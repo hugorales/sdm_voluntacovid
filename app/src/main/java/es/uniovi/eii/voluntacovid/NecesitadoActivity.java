@@ -75,7 +75,16 @@ public class NecesitadoActivity extends AppCompatActivity {
                     });
                     recycler.setAdapter(adaptador);
                 }else{
-                    ListaNecesitadoAdaptador adaptador = new ListaNecesitadoAdaptador(ayudaDataSource.getAyudaByUserAndStatus(preferences.getString("usuario",""),"COMPLETADO"));
+                    final List<Ayuda> listaAyuda2 = ayudaDataSource.getAyudaByUserAndStatus(preferences.getString("usuario",""),"COMPLETADO");
+                    ListaNecesitadoAdaptador adaptador = new ListaNecesitadoAdaptador(listaAyuda2);
+                    adaptador.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(NecesitadoActivity.this, DetalleAyudaCompletada.class);
+                            intent.putExtra("ayuda",listaAyuda2.get(recycler.getChildAdapterPosition(v)));
+                            startActivity(intent);
+                        }
+                    });
                     recycler.setAdapter(adaptador);
                 }
                 ayudaDataSource.close();

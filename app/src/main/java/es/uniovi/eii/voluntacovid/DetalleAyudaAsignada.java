@@ -1,7 +1,10 @@
 package es.uniovi.eii.voluntacovid;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,6 +12,7 @@ import android.widget.TextView;
 
 import com.google.android.material.button.MaterialButtonToggleGroup;
 
+import es.uniovi.eii.voluntacovid.datos.AyudaDataSource;
 import es.uniovi.eii.voluntacovid.modelo.Ayuda;
 
 public class DetalleAyudaAsignada extends AppCompatActivity {
@@ -49,14 +53,41 @@ public class DetalleAyudaAsignada extends AppCompatActivity {
         btnVerInformacionVoluntario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                InfoUsuarioFragment infoUsuarioFragment = new InfoUsuarioFragment();
+                Bundle args = new Bundle();
+                args.putString("usuario",ayuda.getVoluntario());
+                infoUsuarioFragment.setArguments(args);
+                infoUsuarioFragment.show(getSupportFragmentManager(),"InfoUsuario");
             }
         });
 
         btnMarcarRealizada.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                AlertDialog.Builder alerta = new AlertDialog.Builder(DetalleAyudaAsignada.this);
+                alerta.setMessage("¿Su necesidad ha sido resuelta satisfactoriamente?");
+                alerta.setTitle("Marcar ayuda como completada");
+                alerta.setCancelable(false);
+                alerta.setPositiveButton("NO", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+                alerta.setNegativeButton("SI", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        AyudaDataSource ayudaDataSource = new AyudaDataSource(getApplicationContext());
+                        ayudaDataSource.open();
+                        ayudaDataSource.marcarAyudaComoCompletada(ayuda.getId());
+                        ayudaDataSource.close();
+                        Intent intent = new Intent(DetalleAyudaAsignada.this, NecesitadoActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+                AlertDialog dialog = alerta.create();
+                dialog.show();
             }
         });
     }
