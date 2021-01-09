@@ -72,7 +72,17 @@ public class VoluntarioActivity extends AppCompatActivity {
                     });
                     recycler.setAdapter(adaptador);
                 }else {
-
+                    final List<Ayuda> listaAyuda2 = ayudaDataSource.getAyudasByEstadoAndVolunario("COMPLETADO",preferences.getString("usuario",""));
+                    ListaNecesitadoAdaptador adaptador = new ListaNecesitadoAdaptador(listaAyuda2);
+                    adaptador.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(VoluntarioActivity.this, DetalleAyudaCompletadaVoluntario.class);
+                            intent.putExtra("ayuda",listaAyuda2.get(recycler.getChildAdapterPosition(v)));
+                            startActivity(intent);
+                        }
+                    });
+                    recycler.setAdapter(adaptador);
                 }
                 ayudaDataSource.close();
             }

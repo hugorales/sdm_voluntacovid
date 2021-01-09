@@ -4,7 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".NecesitadoActivity">
     <item
-        android:id="@+id/desconectarse"
-        android:icon="@android:drawable/ic_lock_power_off"
-        android:title="Cerrar Sesión" />
+        android:id="@+id/btnMore"
+        android:icon="@drawable/exit"
+        android:title="Cerrar Sesión"
+        app:showAsAction="always">
+
+        <menu>
+            <item
+                android:id="@+id/desconectarse"
+                android:icon="@drawable/logout"
+                android:title="Cerrar Sesión"
+                app:showAsAction="always"
+
+                />
+        </menu>
+    </item>
 </menu>

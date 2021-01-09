@@ -197,6 +197,12 @@ public class AyudaDataSource {
         database.update(MyDBHelper.TABLA_AYUDA,values,"id="+idAyuda,null);
     }
 
+    public void marcarAyudaComoCompletada(int idAyuda){
+        ContentValues values = new ContentValues();
+        values.put("estado","COMPLETADO");
+        database.update(MyDBHelper.TABLA_AYUDA,values,"id="+idAyuda,null);
+    }
+
     public List<Ayuda> getAyudasByEstadoAndVolunario(String estado,String voluntario){
         List<Ayuda> ayudaList = new ArrayList<Ayuda>();
 

@@ -80,6 +80,10 @@ public class SolicitarAyudaActivity extends AppCompatActivity {
             edtDescripcion.setError("Inserte una descripción");
             return false;
         }
+        if(edtUrgencia.getText().toString().isEmpty()){
+            edtUrgencia.setError("Inserte un valor entre 1 y 10");
+            return false;
+        }
         if(Integer.parseInt(edtUrgencia.getText().toString()) < 1 || Integer.parseInt(edtUrgencia.getText().toString()) > 10){
             edtUrgencia.setError("Inserte un valor entre 1 y 10");
             return false;

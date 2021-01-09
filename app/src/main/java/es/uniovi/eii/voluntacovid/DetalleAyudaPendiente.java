@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import es.uniovi.eii.voluntacovid.datos.AyudaDataSource;
 import es.uniovi.eii.voluntacovid.modelo.Ayuda;
@@ -62,6 +63,7 @@ public class DetalleAyudaPendiente extends AppCompatActivity {
                         ayudaDataSource.close();
                         Intent intent = new Intent(DetalleAyudaPendiente.this, NecesitadoActivity.class);
                         startActivity(intent);
+                        Toast.makeText(getApplicationContext(),"¡Has eliminado la solicitud de ayuda", Toast.LENGTH_SHORT).show();
                         finish();
                     }
                 });
