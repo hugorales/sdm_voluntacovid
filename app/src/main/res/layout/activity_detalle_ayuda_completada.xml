@@ -4,105 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".DetalleAyudaCompletada">
-
-    <TextView
-        android:id="@+id/txUrgenciaDetalleCompletada1"
-        android:layout_width="323dp"
-        android:layout_height="37dp"
-        android:text="TextView"
-        android:textAlignment="center"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txUrgenciaDetalleCompletada"
-        app:layout_constraintVertical_bias="0.126" />
-
-    <TextView
-        android:id="@+id/txUrgenciaDetalleCompletada"
-        android:layout_width="134dp"
-        android:layout_height="26dp"
-        android:text="URGENCIA"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.801" />
-
-    <TextView
-        android:id="@+id/txVoluntarioDetalleCompletada1"
-        android:layout_width="323dp"
-        android:layout_height="37dp"
-        android:text="TextView"
-        android:textAlignment="center"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txVoluntarioDetalleCompletada"
-        app:layout_constraintVertical_bias="0.093" />
-
-    <TextView
-        android:id="@+id/txVoluntarioDetalleCompletada"
-        android:layout_width="134dp"
-        android:layout_height="26dp"
-        android:text="VOLUNTARIO"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.675" />
-
-    <TextView
-        android:id="@+id/txTituloDetalleCompletada1"
-        android:layout_width="323dp"
-        android:layout_height="37dp"
-        android:text="TextView"
-        android:textAlignment="center"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txTituloDetalleCompletada"
-        app:layout_constraintVertical_bias="0.021" />
-
-    <TextView
-        android:id="@+id/txDescripcionDetalleCompletada"
-        android:layout_width="134dp"
-        android:layout_height="26dp"
-        android:text="DESCRIPCIÓN"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.151" />
-
-    <TextView
-        android:id="@+id/txTituloDetalleCompletada"
-        android:layout_width="63dp"
-        android:layout_height="23dp"
-        android:text="TÍTULO"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.018" />
 
     <TextView
         android:id="@+id/txDescripcionDetalleCompletada1"
@@ -110,57 +13,29 @@
         android:layout_height="120dp"
         android:text="TextView"
         android:textAlignment="center"
+        android:textColor="@color/design_default_color_on_secondary"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txDescripcionDetalleCompletada"
-        app:layout_constraintVertical_bias="0.033" />
+        app:layout_constraintVertical_bias="0.031" />
 
     <TextView
-        android:id="@+id/txFechaDetalleCompletada"
+        android:id="@+id/txVoluntarioDetalleCompletada"
         android:layout_width="134dp"
         android:layout_height="26dp"
-        android:text="FECHA"
+        android:text="VOLUNTARIO"
         android:textAlignment="center"
+        android:textColor="@color/design_default_color_on_secondary"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.402" />
-
-    <TextView
-        android:id="@+id/txEstadoDetalleCompletada"
-        android:layout_width="134dp"
-        android:layout_height="26dp"
-        android:text="ESTADO"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.55" />
-
-    <TextView
-        android:id="@+id/txFechaDetalleCompletada1"
-        android:layout_width="323dp"
-        android:layout_height="37dp"
-        android:text="TextView"
-        android:textAlignment="center"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.522"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txFechaDetalleCompletada"
-        app:layout_constraintVertical_bias="0.026" />
+        app:layout_constraintVertical_bias="0.729" />
 
     <TextView
         android:id="@+id/txEstadoDetalleCompletada1"
@@ -168,11 +43,153 @@
         android:layout_height="37dp"
         android:text="TextView"
         android:textAlignment="center"
+        android:textColor="@color/design_default_color_on_secondary"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txEstadoDetalleCompletada"
-        app:layout_constraintVertical_bias="0.054" />
+        app:layout_constraintVertical_bias="0.061" />
+
+    <TextView
+        android:id="@+id/txVoluntarioDetalleCompletada1"
+        android:layout_width="323dp"
+        android:layout_height="37dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="@color/design_default_color_on_secondary"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txVoluntarioDetalleCompletada"
+        app:layout_constraintVertical_bias="0.116" />
+
+    <TextView
+        android:id="@+id/txEstadoDetalleCompletada"
+        android:layout_width="134dp"
+        android:layout_height="26dp"
+        android:text="ESTADO"
+        android:textAlignment="center"
+        android:textColor="@color/design_default_color_on_secondary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.604" />
+
+    <TextView
+        android:id="@+id/txFechaDetalleCompletada1"
+        android:layout_width="323dp"
+        android:layout_height="37dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="@color/design_default_color_on_secondary"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txFechaDetalleCompletada"
+        app:layout_constraintVertical_bias="0.028" />
+
+    <TextView
+        android:id="@+id/txTituloDetalleCompletada1"
+        android:layout_width="323dp"
+        android:layout_height="37dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="@color/design_default_color_on_secondary"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txTituloDetalleCompletada"
+        app:layout_constraintVertical_bias="0.019" />
+
+    <TextView
+        android:id="@+id/txUrgenciaDetalleCompletada"
+        android:layout_width="134dp"
+        android:layout_height="26dp"
+        android:text="URGENCIA"
+        android:textAlignment="center"
+        android:textColor="@color/design_default_color_on_secondary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.855" />
+
+    <TextView
+        android:id="@+id/txFechaDetalleCompletada"
+        android:layout_width="134dp"
+        android:layout_height="26dp"
+        android:text="FECHA"
+        android:textAlignment="center"
+        android:textColor="@color/design_default_color_on_secondary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.456" />
+
+    <TextView
+        android:id="@+id/txUrgenciaDetalleCompletada1"
+        android:layout_width="323dp"
+        android:layout_height="37dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="@color/design_default_color_on_secondary"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txUrgenciaDetalleCompletada"
+        app:layout_constraintVertical_bias="0.2" />
+
+    <TextView
+        android:id="@+id/txDescripcionDetalleCompletada"
+        android:layout_width="134dp"
+        android:layout_height="26dp"
+        android:text="DESCRIPCIÓN"
+        android:textAlignment="center"
+        android:textColor="@color/design_default_color_on_secondary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.205" />
+
+    <TextView
+        android:id="@+id/txTituloDetalleCompletada"
+        android:layout_width="63dp"
+        android:layout_height="23dp"
+        android:text="TÍTULO"
+        android:textAlignment="center"
+        android:textColor="@color/design_default_color_on_secondary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.072" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

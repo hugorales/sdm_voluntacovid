@@ -20,7 +20,10 @@
             android:id="@+id/txTitulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/grisMuyClaro"
             android:text="TextView"
+            android:textAlignment="center"
+            android:textColor="@color/design_default_color_on_secondary"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -28,7 +31,9 @@
             android:id="@+id/txDescripcion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/grisMuyClaro"
             android:text="TextView"
+            android:textColor="@color/design_default_color_on_secondary"
             android:textSize="14sp" />
 
     </LinearLayout>
@@ -37,8 +42,8 @@
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/colorPrimary"
-        android:layout_marginTop="11dp"/>
+        android:layout_marginTop="11dp"
+         />
 
 
 </LinearLayout>
