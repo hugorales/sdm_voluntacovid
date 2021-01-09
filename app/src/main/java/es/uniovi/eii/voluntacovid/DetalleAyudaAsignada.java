@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButtonToggleGroup;
 
@@ -83,6 +84,7 @@ public class DetalleAyudaAsignada extends AppCompatActivity {
                         ayudaDataSource.close();
                         Intent intent = new Intent(DetalleAyudaAsignada.this, NecesitadoActivity.class);
                         startActivity(intent);
+                        Toast.makeText(getApplicationContext(),"Has marcado la ayuda como completada", Toast.LENGTH_SHORT).show();
                         finish();
                     }
                 });

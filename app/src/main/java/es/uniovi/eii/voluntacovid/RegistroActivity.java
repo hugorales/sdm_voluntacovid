@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import es.uniovi.eii.voluntacovid.datos.UsuariosDataSource;
 import es.uniovi.eii.voluntacovid.modelo.Usuario;
@@ -57,12 +58,14 @@ public class RegistroActivity extends AppCompatActivity {
                             usuariosDataSource.createUser(usuarioAñadir);
                             Intent myIntent = new Intent(RegistroActivity.this, NecesitadoActivity.class);
                             RegistroActivity.this.startActivity(myIntent);
+                            Toast.makeText(getApplicationContext(),"¡Bienvenido " + txUsuario.getText().toString() + "! Te has registrado con éxito", Toast.LENGTH_SHORT).show();
                             finish();
                         }else{
                             usuarioAñadir.setTipo("VOLUNTARIO");
                             usuariosDataSource.createUser(usuarioAñadir);
                             Intent myIntent = new Intent(RegistroActivity.this, PaginaPrincipalActivity.class);
                             RegistroActivity.this.startActivity(myIntent);
+                            Toast.makeText(getApplicationContext(),"¡Bienvenido " + txUsuario.getText().toString() + "! Te has registrado con éxito", Toast.LENGTH_SHORT).show();
                             finish();
                         }
 

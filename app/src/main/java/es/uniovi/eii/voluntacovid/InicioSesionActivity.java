@@ -64,18 +64,14 @@ public class InicioSesionActivity extends AppCompatActivity {
                         if(usuario.getTipo().equals("NECESITADO")){
                             Intent myIntent = new Intent(InicioSesionActivity.this, NecesitadoActivity.class);
                             InicioSesionActivity.this.startActivity(myIntent);
+                            Toast.makeText(getApplicationContext(),"Hola de nuevo " + txtUsuario.getText().toString(),Toast.LENGTH_SHORT).show();
                             finish();
                         }else{
                             Intent myIntent = new Intent(InicioSesionActivity.this, VoluntarioActivity.class);
                             InicioSesionActivity.this.startActivity(myIntent);
+                            Toast.makeText(getApplicationContext(),"Hola de nuevo " + txtUsuario.getText().toString(),Toast.LENGTH_SHORT).show();
                             finish();
                         }
-                        Toast toast1 =
-                                Toast.makeText(getApplicationContext(),
-                                        "Inicio correcto", Toast.LENGTH_SHORT);
-
-                        toast1.show();
-
                     }
                 }
             }
