@@ -119,6 +119,7 @@ public class NecesitadoActivity extends AppCompatActivity {
         if(id==R.id.desconectarse){
             Intent intent = new Intent(NecesitadoActivity.this, InicioSesionActivity.class);
             startActivity(intent);
+            Toast.makeText(getApplicationContext(),"Te has desconectado",Toast.LENGTH_SHORT).show();
             finish();
             return true;
         }

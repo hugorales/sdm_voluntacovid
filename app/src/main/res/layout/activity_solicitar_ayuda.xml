@@ -123,13 +123,16 @@
 
     <Button
         android:id="@+id/btnSolicitar"
-        android:layout_width="209dp"
-        android:layout_height="68dp"
+        android:layout_width="192dp"
+        android:layout_height="53dp"
+        android:background="@drawable/redondeo"
+        android:backgroundTint="@color/grisMuyClaro"
         android:text="SOLICITAR"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.99" />
+        app:layout_constraintVertical_bias="0.976" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
