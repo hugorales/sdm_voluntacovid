@@ -46,6 +46,7 @@
         android:id="@+id/spinner"
         android:layout_width="376dp"
         android:layout_height="24dp"
+        android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

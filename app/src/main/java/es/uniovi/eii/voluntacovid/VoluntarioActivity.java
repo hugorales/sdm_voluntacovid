@@ -15,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -110,6 +111,7 @@ public class VoluntarioActivity extends AppCompatActivity {
         if(id==R.id.desconectarse){
             Intent intent = new Intent(VoluntarioActivity.this, InicioSesionActivity.class);
             startActivity(intent);
+            Toast.makeText(getApplicationContext(),"Te has desconectado",Toast.LENGTH_SHORT).show();
             finish();
             return true;
         }
