@@ -1,4 +1,4 @@
-package es.uniovi.eii.voluntacovid;
+package es.uniovi.eii.voluntacovid.adaptadores;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import es.uniovi.eii.voluntacovid.R;
 import es.uniovi.eii.voluntacovid.modelo.Ayuda;
 
 public class ListaNecesitadoAdaptador extends RecyclerView.Adapter<ListaNecesitadoAdaptador.ViewHolderDatos>

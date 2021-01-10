@@ -1,4 +1,4 @@
-package es.uniovi.eii.voluntacovid;
+package es.uniovi.eii.voluntacovid.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -13,74 +13,73 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.BaseTransientBottomBar;
-import com.google.android.material.snackbar.Snackbar;
-
-import java.util.ArrayList;
 import java.util.List;
 
+import es.uniovi.eii.voluntacovid.R;
+import es.uniovi.eii.voluntacovid.adaptadores.ListaNecesitadoAdaptador;
 import es.uniovi.eii.voluntacovid.datos.AyudaDataSource;
+import es.uniovi.eii.voluntacovid.datos.UsuariosDataSource;
 import es.uniovi.eii.voluntacovid.modelo.Ayuda;
+import es.uniovi.eii.voluntacovid.modelo.Usuario;
 
-public class NecesitadoActivity extends AppCompatActivity {
-
+public class VoluntarioActivity extends AppCompatActivity {
     private RecyclerView recycler;
-    private FloatingActionButton btnSolicitarAyuda;
-    private Spinner spinner;
+    private Spinner spinner1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_necesitado);
+        setContentView(R.layout.activity_voluntario);
 
-        recycler= (RecyclerView) findViewById(R.id.recyclerNecesitado);
-        recycler.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
+        spinner1 = (Spinner)findViewById(R.id.spinner2);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.listavoluntario, android.R.layout.simple_spinner_item);
+        spinner1.setAdapter(adapter);
 
-        spinner = (Spinner) findViewById(R.id.spinner);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.listanecesitado, android.R.layout.simple_spinner_item);
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 AyudaDataSource ayudaDataSource = new AyudaDataSource(getApplicationContext());
                 ayudaDataSource.open();
                 SharedPreferences preferences = getSharedPreferences("usuarioSesion", Context.MODE_PRIVATE);
-                if(position==0){
-                    final List<Ayuda> listaAyuda = ayudaDataSource.getAyudaByUserAndStatus(preferences.getString("usuario",""),"PENDIENTE");
+                if(position == 0){
+                    UsuariosDataSource usuariosDataSource = new UsuariosDataSource(getApplicationContext());
+                    usuariosDataSource.open();
+                    Usuario usuarioSesion = usuariosDataSource.getUserByUser(preferences.getString("usuario",""));
+                    List<String> usuarios = usuariosDataSource.getUsersByCP(usuarioSesion.getCodigoPostal());
+                    usuariosDataSource.close();
+                    final List<Ayuda> listaAyuda = ayudaDataSource.getAyudaByUsers(usuarios);
                     ListaNecesitadoAdaptador adaptador = new ListaNecesitadoAdaptador(listaAyuda);
                     adaptador.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent intent = new Intent(NecesitadoActivity.this, DetalleAyudaPendiente.class);
+                            Intent intent = new Intent(VoluntarioActivity.this, DetalleAyudaPendienteVoluntario.class);
                             intent.putExtra("ayuda",listaAyuda.get(recycler.getChildAdapterPosition(v)));
                             startActivity(intent);
                         }
                     });
                     recycler.setAdapter(adaptador);
-                }else if(position==1){
-                    final List<Ayuda> listaAyuda1 = ayudaDataSource.getAyudaByUserAndStatus(preferences.getString("usuario",""),"ASIGNADO");
+                }else if(position == 1){
+                    final List<Ayuda> listaAyuda1 = ayudaDataSource.getAyudasByEstadoAndVolunario("ASIGNADO",preferences.getString("usuario",""));
                     ListaNecesitadoAdaptador adaptador = new ListaNecesitadoAdaptador(listaAyuda1);
                     adaptador.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent intent = new Intent(NecesitadoActivity.this, DetalleAyudaAsignada.class);
+                            Intent intent = new Intent(VoluntarioActivity.this, DetalleAyudaProcesoVoluntario.class);
                             intent.putExtra("ayuda",listaAyuda1.get(recycler.getChildAdapterPosition(v)));
                             startActivity(intent);
                         }
                     });
                     recycler.setAdapter(adaptador);
-                }else{
-                    final List<Ayuda> listaAyuda2 = ayudaDataSource.getAyudaByUserAndStatus(preferences.getString("usuario",""),"COMPLETADO");
+                }else {
+                    final List<Ayuda> listaAyuda2 = ayudaDataSource.getAyudasByEstadoAndVolunario("COMPLETADO",preferences.getString("usuario",""));
                     ListaNecesitadoAdaptador adaptador = new ListaNecesitadoAdaptador(listaAyuda2);
                     adaptador.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent intent = new Intent(NecesitadoActivity.this, DetalleAyudaCompletada.class);
+                            Intent intent = new Intent(VoluntarioActivity.this, DetalleAyudaCompletadaVoluntario.class);
                             intent.putExtra("ayuda",listaAyuda2.get(recycler.getChildAdapterPosition(v)));
                             startActivity(intent);
                         }
@@ -96,14 +95,8 @@ public class NecesitadoActivity extends AppCompatActivity {
             }
         });
 
-        btnSolicitarAyuda = (FloatingActionButton) findViewById(R.id.btnSolicitarAyuda);
-        btnSolicitarAyuda.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(NecesitadoActivity.this, SolicitarAyudaActivity.class);
-                startActivity(myIntent);
-            }
-        });
+        recycler= (RecyclerView) findViewById(R.id.recyclerVoluntario);
+        recycler.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
 
     }
 
@@ -117,7 +110,7 @@ public class NecesitadoActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item){
         int id = item.getItemId();
         if(id==R.id.desconectarse){
-            Intent intent = new Intent(NecesitadoActivity.this, InicioSesionActivity.class);
+            Intent intent = new Intent(VoluntarioActivity.this, InicioSesionActivity.class);
             startActivity(intent);
             Toast.makeText(getApplicationContext(),"Te has desconectado",Toast.LENGTH_SHORT).show();
             finish();

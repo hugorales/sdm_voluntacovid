@@ -1,4 +1,4 @@
-package es.uniovi.eii.voluntacovid;
+package es.uniovi.eii.voluntacovid.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
+import es.uniovi.eii.voluntacovid.R;
 import es.uniovi.eii.voluntacovid.modelo.Ayuda;
 
 public class DetalleAyudaCompletada extends AppCompatActivity {

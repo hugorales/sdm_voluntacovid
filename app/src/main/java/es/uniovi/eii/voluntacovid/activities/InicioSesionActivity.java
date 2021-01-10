@@ -1,4 +1,4 @@
-package es.uniovi.eii.voluntacovid;
+package es.uniovi.eii.voluntacovid.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import es.uniovi.eii.voluntacovid.R;
 import es.uniovi.eii.voluntacovid.datos.UsuariosDataSource;
 import es.uniovi.eii.voluntacovid.modelo.Usuario;
 

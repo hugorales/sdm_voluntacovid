@@ -1,8 +1,10 @@
-package es.uniovi.eii.voluntacovid;
+package es.uniovi.eii.voluntacovid.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import es.uniovi.eii.voluntacovid.R;
 
 public class PaginaPrincipalActivity extends AppCompatActivity {
 

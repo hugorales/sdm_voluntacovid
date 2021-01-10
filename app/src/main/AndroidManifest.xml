@@ -11,14 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DetalleAyudaCompletadaVoluntario"></activity>
-        <activity android:name=".DetalleAyudaProcesoVoluntario" />
-        <activity android:name=".DetalleAyudaCompletada" />
-        <activity android:name=".DetalleAyudaAsignada" />
-        <activity android:name=".DetalleAyudaPendienteVoluntario" />
-        <activity android:name=".DetalleAyudaPendiente" />
-        <activity android:name=".VoluntarioActivity" />
-        <activity android:name=".InicioSesionActivity">
+        <activity android:name=".activities.DetalleAyudaCompletadaVoluntario"></activity>
+        <activity android:name=".activities.DetalleAyudaProcesoVoluntario" />
+        <activity android:name=".activities.DetalleAyudaCompletada" />
+        <activity android:name=".activities.DetalleAyudaAsignada" />
+        <activity android:name=".activities.DetalleAyudaPendienteVoluntario" />
+        <activity android:name=".activities.DetalleAyudaPendiente" />
+        <activity android:name=".activities.VoluntarioActivity" />
+        <activity android:name=".activities.InicioSesionActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,11 +26,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".RegistroActivity"
+            android:name=".activities.RegistroActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".SolicitarAyudaActivity" />
-        <activity android:name=".NecesitadoActivity" />
-        <activity android:name=".PaginaPrincipalActivity" />
+        <activity android:name=".activities.SolicitarAyudaActivity" />
+        <activity android:name=".activities.NecesitadoActivity" />
+        <activity android:name=".activities.PaginaPrincipalActivity" />
     </application>
 
 </manifest>
