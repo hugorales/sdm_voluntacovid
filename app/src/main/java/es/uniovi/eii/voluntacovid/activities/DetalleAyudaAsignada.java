@@ -1,4 +1,4 @@
-package es.uniovi.eii.voluntacovid;
+package es.uniovi.eii.voluntacovid.activities;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,9 +11,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.material.button.MaterialButtonToggleGroup;
-
+import es.uniovi.eii.voluntacovid.R;
 import es.uniovi.eii.voluntacovid.datos.AyudaDataSource;
+import es.uniovi.eii.voluntacovid.fragments.InfoUsuarioFragment;
 import es.uniovi.eii.voluntacovid.modelo.Ayuda;
 
 public class DetalleAyudaAsignada extends AppCompatActivity {

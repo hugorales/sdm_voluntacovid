@@ -1,4 +1,4 @@
-package es.uniovi.eii.voluntacovid;
+package es.uniovi.eii.voluntacovid.fragments;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import es.uniovi.eii.voluntacovid.R;
 import es.uniovi.eii.voluntacovid.datos.UsuariosDataSource;
 import es.uniovi.eii.voluntacovid.modelo.Ayuda;
 import es.uniovi.eii.voluntacovid.modelo.Usuario;
